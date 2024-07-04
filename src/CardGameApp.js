@@ -7,6 +7,8 @@ class CardGameApp {
   }
 
   start() {
+    console.log('Starting the game...');
+    this.game.deal();
     this.game.play();
   }
 }

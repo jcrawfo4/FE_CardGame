@@ -5,7 +5,7 @@ class Card {
     this.value = value;
   }
   describe(){
-    return `${this.name} of ${this.suit}`;
+    return `${this.name} of ${this.suit} with a value of ${this.value}`;
   }
 
   getValue(){

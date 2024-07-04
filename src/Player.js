@@ -5,7 +5,6 @@ class Player {
     this.name = name;
     this.score = 0;
     this.hand = [];
-    this.isWinner = false;
   }
 
   setName = (name) => {
@@ -23,11 +22,14 @@ class Player {
   };
 
   incrementScore = () => {
-    this.score++;
+    this.score += 1;
   };
 
   setHand = (hand) => {
     this.hand = hand;
+  };
+  getHand = () => {
+    return this.hand;
   };
 }
 module.exports = Player;
