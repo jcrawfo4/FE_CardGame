@@ -1,3 +1,5 @@
+const Card = require('./Card');
+
 class Deck {
 
   constructor() {
@@ -5,11 +7,11 @@ class Deck {
     const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
     const names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
     const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-    for (let suit in suits) {
-      for (let name in names) {
-        this.cards.push(new Card(name, suit, value));
-      }
-    }
+    suits.forEach(suit => {
+      names.forEach((name, index) => {
+        this.cards.push(new Card(name, suit, values[index]));
+      });
+    });
   }
 
   deckDescription() {
@@ -29,3 +31,4 @@ class Deck {
     }
   }
 }
+module.exports = Deck;

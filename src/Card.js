@@ -11,4 +11,7 @@ class Card {
   getValue(){
     return this.value;
   }
+
+  
 }
+module.exports = Card;

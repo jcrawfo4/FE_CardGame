@@ -1,7 +1,14 @@
+
+const Player = require('./Player.js');
+const Deck = require('./Deck.js');
+const Card = require('./Card.js');
+
 class Game {
-  constructor (){
-    this.playerOne = new Player();
-    this.playerTwo = new Player();
+  constructor (playerOne, playerTwo){
+    playerOne = new Player();
+    playerTwo = new Player();
+    this.playerOne = playerOne;
+    this.playerTwo = playerTwo;
     this.players = [playerOne, playerTwo];
     this.deck = new Deck();
     this.winner = null;
@@ -25,11 +32,11 @@ class Game {
       let playerTwoCard = this.players[1].hand.shift();
       console.log(`${this.playerOne.getName()} plays ${playerOneCard.toString()}`);
       console.log(`${this.players[1].getName()} plays ${playerTwoCard.toString()}`);
-      if (playerOneCard.getRank() > playerTwoCard.getRank()){
-        this.players[0].incrementScore();
+      if (playerOneCard.getValue() > playerTwoCard.getRank()){
+        this.players[0].getScore.incrementScore();
         console.log(`${this.players[0].getName()} wins the round!`);
       } else if (playerOneCard.getRank() < playerTwoCard.getRank()){
-        this.players[1].incrementScore();
+        this.players[1].getScore.incrementScore();
         console.log(`${this.players[1].getName()} wins the round!`);
       } else {
         console.log("It's a tie!");
@@ -44,3 +51,4 @@ class Game {
     console.log(`${player.getName()} wins with ${player.getScore()} points!`);
   }
 }
+module.exports = Game;
